@@ -12,6 +12,6 @@ import java.awt.*;
 public class HelloEndpoint {
     @GET
     public Response testGbdgApi() {
-        return Response.ok("This is financial home managment...").build();
+        return Response.ok("WELCOME! This is financial home managment...").build();
     }
 }
