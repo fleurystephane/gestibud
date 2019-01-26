@@ -69,37 +69,25 @@
     <build>
         <finalName>gestibud</finalName>
         <plugins>
+
             <plugin>
-                <groupId>org.wildfly.swarm</groupId>
-                <artifactId>wildfly-swarm-plugin</artifactId>
-                <version>${version.wildfly.swarm}</version>
-                <configuration>
-                    <mainClass>com.example.Main</mainClass>
-                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
                 <executions>
                     <execution>
-                        <goals><goal>package</goal></goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.5</version>
-                <executions>
-                    <execution>
-                        <id>clean-jar-artifacts</id>
-                        <phase>install</phase>
-                        <goals><goal>clean</goal></goals>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals><goal>copy</goal></goals>
                         <configuration>
-                            <excludeDefaultDirectories>true</excludeDefaultDirectories>
-                            <filesets>
-                                <fileset>
-                                    <directory>target</directory>
-                                    <excludes>
-                                        <exclude>*.jar</exclude>
-                                    </excludes>
-                                </fileset>
-                            </filesets>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.github.jsimone</groupId>
+                                    <artifactId>webapp-runner-main</artifactId>
+                                    <version>8.5.23.1</version>
+                                    <destFileName>webapp-runner.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
                         </configuration>
                     </execution>
                 </executions>
