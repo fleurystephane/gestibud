@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/gestibud.war
+web:    java -Dswarm.http.port=$PORT -jar target/gestibud-swarm.jar
