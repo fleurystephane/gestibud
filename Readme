@@ -1,0 +1,3 @@
+Lancement en local :
+
+java -Dswarm.http.port=8282 -jar target/gestibud-swarm.jar
